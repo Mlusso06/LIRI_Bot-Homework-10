@@ -1,0 +1,19 @@
+{
+  "name": "liri_bot-homework-10",
+  "version": "1.0.0",
+  "description": "Homwork Liri Bot",
+  "main": "liri.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mlusso06/LIRI_Bot-Homework-10.git"
+  },
+  "author": "Michael Lusso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mlusso06/LIRI_Bot-Homework-10/issues"
+  },
+  "homepage": "https://github.com/Mlusso06/LIRI_Bot-Homework-10#readme"
+}
