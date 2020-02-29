@@ -36,7 +36,7 @@ var writeToLog = function (data) {
 
       Make sure you append each command you run to the log.txt file.
 
-      Do not overwrite your file each time you run a command.
+      Do not overwrite your file each time you run a command..........
     */
 
   // Append the JSON data and add a newline character to the end of the log.txt file
@@ -62,8 +62,7 @@ var getMeSpotify = function (songName) {
 }
 // Function for concert search
 var getMyBands = function (artist) {
-  console.log("\n ----- \n\nYou are searching for..." + artist + " 's next Show")
-
+  
   var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
 
   axios.get(queryURL).then(
@@ -73,17 +72,17 @@ var getMyBands = function (artist) {
       if (!jsonData.length) {
         console.log("No results found for " + artist);
         return;
-      }
-
+      };
       var logData = [];
+      logData.push("Upcoming concerts for " + artist +  " Venue: " + jsonData[0].venue.name + " Location: " + jsonData[0].venue.country);
 
-      logData.push("Upcoming concerts for " + artist + "\nVenue: " + jsonData[0].venue.name + "\nLocation: " + jsonData[0].venue.contry + "\nDate of: " + jsonData[0].datetime + "\n Now go get them tickets!");
-
+      var concertDate = moment(jsonData[0].datetime).format("MM/DD/YYYY");
+      var bandInfo = (JSON.stringify(logData))
+      console.dir(bandInfo)
+      console.log("Date of the concert: " + concertDate + "now Get some tickets")
     }
   );
 };
-
-
 // Function for running a Movie Search
 var getMeMovie = function (movieName) {
   if (movieName === undefined) {
@@ -95,7 +94,7 @@ var getMeMovie = function (movieName) {
   axios.get(urlHit).then(
     function (response) {
       var jsonData = response.data;
-      console.log(jsonData);
+      // console.log(jsonData);
       console.log("\nMovie Info " + "\nTitle: " + jsonData.Title + "\nRelease Year: " + jsonData.Year + "\nRating: " + jsonData.Rated + "\nRelease Country: " + jsonData.Contry + "\nLanguage: " + jsonData.Language + "\nPlot: " + jsonData.Plot + "\nActors: " + jsonData.Actors + "\n" + "\n This is a Hit movie!");
     }
   );
