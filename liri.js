@@ -68,24 +68,33 @@ var getMyBands = function (artist) {
   axios.get(queryURL).then(
     function (response) {
       var jsonData = response.data;
+      // console.log(jsonData)
 
       if (!jsonData.length) {
         console.log("No results found for " + artist);
         return;
       };
-      var logData = [];
-      logData.push("Upcoming concerts for " + artist +  " Venue: " + jsonData[0].venue.name + " Location: " + jsonData[0].venue.country);
-
+      // var logData = [];
+      // for (var i = 0; i < logData.length; i++) {
+      //   logData.push(stringify(logData[i]));
+      // }
+      // logData.push(" Upcoming concerts for " + artist +  "Venue: " + jsonData[0].venue.name + " Location: " + jsonData[0].venue.country);
       var concertDate = moment(jsonData[0].datetime).format("MM/DD/YYYY");
-      var bandInfo = (JSON.stringify(logData))
-      console.dir(bandInfo)
-      console.log("Date of the concert: " + concertDate + "now Get some tickets")
+      console.log(`Upcoming concerts for ${artist}
+                   Venue: ${jsonData[0].venue.name}
+                   Location: ${jsonData[0].venue.country}
+                   Date: ${concertDate}`)
+
+
+      // var bandInfo = (JSON.stringify(logData, undefined, 2))
+      // console.log(bandInfo)
+      // console.log("Date of the concert: " + concertDate + "now Get some tickets")
     }
   );
 };
 // Function for running a Movie Search
 var getMeMovie = function (movieName) {
-  if (movieName === undefined) {
+  if (movieName === "") {
     movieName = "Mr Nobody";
   }
 
@@ -134,7 +143,7 @@ var pick = function (command, commandData) {
       doWhatItSays(commandData);
       break;
     default:
-      console.log("I don't understand the words you are typing");
+      console.log("Not sure what you are doing. \nType node liri.js 'do-what' for an example");
       break;
   }
 };
