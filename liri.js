@@ -25,28 +25,6 @@ var spotify = new Spotify(keys.spotify);
 // FUNCTIONS
 // =====================================
 
-// Writes to the log.txt file
-var writeToLog = function (data) {
-
-  /** FIXME: BONUS
-   * 
-   * 
-
-      In addition to logging the data to your terminal/bash window, output the data to a .txt file called log.txt.
-
-      Make sure you append each command you run to the log.txt file.
-
-      Do not overwrite your file each time you run a command..........
-    */
-
-  // Append the JSON data and add a newline character to the end of the log.txt file
-
-};
-
-// Helper function that gets the artist name
-var getArtistNames = function (artist) {
-  return artist.name;
-};
 
 // Function for running a Spotify search
 var getMeSpotify = function (songName) {
@@ -55,14 +33,21 @@ var getMeSpotify = function (songName) {
   };
   spotify.search({ type: 'track', query: songName }, function (err, data) {
     if (err) {
-        return console.log('Error occurred: ' + err);
+      return console.log('Error occurred: ' + err);
     }
-    console.log("\nThe information you seek:" + "\nArtist: " + data.tracks.items[0].artists[0].name + "\nSong: " + data.tracks.items[0].name + "\nLink: " + data.tracks.items[0].external_urls.spotify + "\nAlbum: " + data.tracks.items[0].album.name + "\n\n" + songName + " is a Great Song and should be a Top Hit")
-});
+    // this will send the info to the user after the liri request
+    console.log(
+      "\nThe information you seek:" + 
+    "\nArtist: " + data.tracks.items[0].artists[0].name + 
+    "\nSong: " + data.tracks.items[0].name + 
+    "\nLink: " + data.tracks.items[0].external_urls.spotify + 
+    "\nAlbum: " + data.tracks.items[0].album.name + 
+    "\n\n" + songName + " is a Great Song and should be a Top Hit")
+  });
 }
 // Function for concert search
 var getMyBands = function (artist) {
-  
+
   var queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
 
   axios.get(queryURL).then(
@@ -74,21 +59,15 @@ var getMyBands = function (artist) {
         console.log("No results found for " + artist);
         return;
       };
-      // var logData = [];
-      // for (var i = 0; i < logData.length; i++) {
-      //   logData.push(stringify(logData[i]));
-      // }
-      // logData.push(" Upcoming concerts for " + artist +  "Venue: " + jsonData[0].venue.name + " Location: " + jsonData[0].venue.country);
+
       var concertDate = moment(jsonData[0].datetime).format("MM/DD/YYYY");
-      console.log(`Upcoming concerts for ${artist}
-                   Venue: ${jsonData[0].venue.name}
-                   Location: ${jsonData[0].venue.country}
-                   Date: ${concertDate}`)
+      console.log(`Here is the Upcoming concerts for: 
+      \n      ${artist}
+      Venue: ${jsonData[0].venue.name}
+      Location: ${jsonData[0].venue.country}
+      Date: ${concertDate}
+      Now go to ticket master to order tickets`)
 
-
-      // var bandInfo = (JSON.stringify(logData, undefined, 2))
-      // console.log(bandInfo)
-      // console.log("Date of the concert: " + concertDate + "now Get some tickets")
     }
   );
 };
@@ -104,7 +83,14 @@ var getMeMovie = function (movieName) {
     function (response) {
       var jsonData = response.data;
       // console.log(jsonData);
-      console.log("\nMovie Info " + "\nTitle: " + jsonData.Title + "\nRelease Year: " + jsonData.Year + "\nRating: " + jsonData.Rated + "\nRelease Country: " + jsonData.Contry + "\nLanguage: " + jsonData.Language + "\nPlot: " + jsonData.Plot + "\nActors: " + jsonData.Actors + "\n" + "\n This is a Hit movie!");
+      console.log(
+        "\nMovie Info " + "\nTitle: " + jsonData.Title +
+        "\nRelease Year: " + jsonData.Year +
+        "\nRating: " + jsonData.Rated +
+        "\nRelease Country: " + jsonData.Contry +
+        "\nLanguage: " + jsonData.Language +
+        "\nPlot: " + jsonData.Plot +
+        "\nActors: " + jsonData.Actors + "\n" + "\n This is a Hit movie!");
     }
   );
 };
@@ -143,7 +129,7 @@ var pick = function (command, commandData) {
       doWhatItSays(commandData);
       break;
     default:
-      console.log("Not sure what you are doing. \nType node liri.js 'do-what' for an example");
+      console.log("Not sure what you are doing. \nType node liri.js 'movie-this' for an example");
       break;
   }
 };

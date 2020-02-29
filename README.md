@@ -25,12 +25,30 @@ LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for mov
    By utilizing these commands, the app will search and give responces of it's findings from establized data bases using APIs.
 
 3. Give start-to-finish instructions on how to run the app
-
+    ## Using the App
+    1. make sure to user loades the required packages for running this app 
+        a. you can perform a npm install (you will get all the dependencies requried)
+    2. run node liri.js 
+        * a. `concert-this` "Name of band"
+             this will send back the info of the Next scheduled locaton of the Bands concert location and date
+        * b. `spotify-this` "name of song"
+            this will send back info about the song and link on spotify for the song file
+        * c. `movie-this` "name of movie" 
+            this will give the info about the movie request and actors that play in the move 
 
 4. Include screenshots, gifs or videos of the app functioning
+    ### concert-this request
+    ![concert-this](./images/concert-this.jpg)
 
+    ### spotify-this request
+    ![spotify-this](./images/spotify-this.jpg)
 
+    ### movie-this request
+    ![movie-this](./images/movie-this.jpg)
+    
 5. Contain a link to a the GitHub Rep
+    https://github.com/Mlusso06/LIRI_Bot-Homework-10
+    [GitHub](https://github.com/Mlusso06/LIRI_Bot-Homework-10)
 
 
 6. Clearly list the technologies used in the app
