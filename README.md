@@ -26,8 +26,19 @@ LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for mov
 
 3. Give start-to-finish instructions on how to run the app
     ## Using the App
-    1. make sure to user loades the required packages for running this app 
-        a. you can perform a npm install (you will get all the dependencies requried)
+    1. make sure the user loades the required packages for running this app 
+        * a. you can perform a npm install (you will get all the dependencies requried)
+        * b. Next, create a file named `.env`, add the following to it, replacing the values with your API keys (no quotes)once you have them:, you will need to got to spotify/developer to gain access to keys, 
+```
+file should contain the text below:
+
+# Spotify API keys
+
+SPOTIFY_ID=your-spotify-id
+SPOTIFY_SECRET=your-spotify-secret
+```
+
+
     2. run node liri.js 
         * a. `concert-this` "Name of band"
              this will send back the info of the Next scheduled locaton of the Bands concert location and date
