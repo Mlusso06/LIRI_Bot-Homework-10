@@ -129,7 +129,7 @@ var pick = function (command, commandData) {
       doWhatItSays(commandData);
       break;
     default:
-      console.log("Not sure what you are doing. \nType node liri.js 'movie-this' for an example");
+      console.log("Not sure what you are doing. \nType node liri.js 'movie' for an example");
       break;
   }
 };

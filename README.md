@@ -35,6 +35,7 @@ LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for mov
             this will send back info about the song and link on spotify for the song file
         * c. `movie-this` "name of movie" 
             this will give the info about the movie request and actors that play in the move 
+        * d. `do-what` this will take the text from a file and do the pull reqeust based on the text from the file (example shown: shopify-this)
 
 4. Include screenshots, gifs or videos of the app functioning
     ### concert-this request
@@ -45,7 +46,10 @@ LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for mov
 
     ### movie-this request
     ![movie-this](./images/movie-this.jpg)
-    
+
+    ### do-what request
+    ![do-what](./images/do-what1.jpg)
+
 5. Contain a link to a the GitHub Rep
     https://github.com/Mlusso06/LIRI_Bot-Homework-10
     [GitHub](https://github.com/Mlusso06/LIRI_Bot-Homework-10)
